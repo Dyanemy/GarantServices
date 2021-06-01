@@ -1,4 +1,4 @@
-﻿@model List<Garant.Models.Article>  
+﻿@model List<Garant.Models.Article>
 @{ Layout = "_Layout"; }
 
 <div class="container text-center text-gradient mt-5 mb-1">
@@ -33,7 +33,7 @@
                                 <p class="card-text">@article.Title</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a asp-action="Index" asp-controller="Article" asp-route-id="@article.id"><button type="button" class="btn btn-sm btn-outline-secondary">Просмотр</button></a>
+                                        <a asp-action="EditArticle" asp-controller="Admin" asp-route-id="@article.id"><button type="button" class="btn btn-sm btn-outline-secondary">Редактировать</button></a>
                                     </div>
                                     <small class="text-muted">@article.TimeToRead мин</small>
                                 </div>
@@ -42,7 +42,7 @@
                     </div>
                 }
 
-                
+
             </div>
         </div>
     </div>
