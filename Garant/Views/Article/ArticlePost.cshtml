@@ -1,0 +1,79 @@
+﻿@model Garant.Models.Article
+@{ Layout = "_Layout"; }
+
+
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>@Model.Title</h1>
+    <hr>
+</div>
+
+
+<main role="main">
+    <div class="container">
+        <div class="row article">
+            <div class="col-md-12">
+                <div class=" mb-4 box-shadow">
+                    @if (Model.Img != null)
+                    {
+        <img class="card-img-top" src="@Model.Img" alt="Card image cap"> }
+                    else
+                    {
+        <img class="card-img-top" src="~/img/kak-sovershit-bezopasnuyu-sdelku.jpg" alt="Card image cap">}
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+
+            @{
+
+
+
+                List<string> text = new List<string>();
+
+                // Delete mess
+                Model.Content = Model.Content.Replace("<p>", "");
+                Model.Content = Model.Content.Replace("</p>", "");
+
+                // Split bold text
+                foreach (string str in Model.Content.Split("<h1>"))
+                {
+                    text.AddRange(str.Split("</h1>", 2));
+                }
+
+
+                for (int i = 0; i < text.Count; i++)
+                {
+
+
+
+                    // Not bold
+                    if (i % 2 == 0)
+                    {
+                        <p>
+                            @foreach (string str in text[i].Split("<br>"))
+                            {
+                                @str
+                                <br>
+                            }
+
+                        </p>
+                        <br>
+                        <br>
+                    }
+                    else
+                    {
+                        <h1 class="text-center">
+                            @text[i]
+                        </h1>
+                    }
+                }
+
+
+            }
+
+        </div>
+</main>
+
+
+
+
