@@ -2052,3 +2052,13 @@ C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Ga
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.genruntimeconfig.cache
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\DetailUser.cshtml.g.cs
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\ChangePassword.cshtml.g.cs
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.csprojAssemblyReference.cache
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.AssemblyInfoInputs.cache
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.AssemblyInfo.cs
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.csproj.CoreCompileInputs.cache
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.RazorAssemblyInfo.cache
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.RazorAssemblyInfo.cs
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.dll
+C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.pdb
