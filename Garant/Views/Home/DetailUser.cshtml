@@ -39,13 +39,10 @@
                 <br />
             </div>
             <div class="row">
-                <div class="col-md-3"> </div>
-                <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Finance" asp-action="AddMoney">Добавить средства</a>
-                <div class="col-md-1"> </div>
-                <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" type="submit">Вывод средств</button>
-                <div class="col-md-1"> </div>
-                <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Home" asp-action="ChangePassword" asp-route-id="@ViewBag.UserVerefy.Id">Изменить пароль</a>
-
+                <div class="col-md-8">
+                    <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Home" asp-action="ChangePassword" asp-route-id="@ViewBag.UserVerefy.Id">Изменить пароль</a>
+                </div>
+                
             </div>
         </form>
     </div>

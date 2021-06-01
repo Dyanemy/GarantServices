@@ -16,9 +16,7 @@ namespace Garant.Controllers
         {
             _db = db;
         }
-        public User author { get; set; }
-        public User executor { get; set; }
-        public Deal qdeal { get; set; }
+
         public int QurencyDealID { get; set; }
 
         [HttpGet]
@@ -58,12 +56,9 @@ namespace Garant.Controllers
             {
                 ViewBag.IdDealUser = QurencyDealID;
                 ViewBag.DealInfo = _db.GetDealInfo(QurencyDealID);
-                qdeal = _db.GetDealInfo(QurencyDealID);
-                author = _db.GetUserByID(ViewBag.DealInfo.IdAuthor);
-                executor = _db.GetUserByID(ViewBag.DealInfo.IdExecutor);
-                ViewBag.QDeal = qdeal;
-                ViewBag.Author = author;
-                ViewBag.Executor = executor;
+                User author = _db.GetUserByID(ViewBag.DealInfo.IdAuthor);
+                User executor = _db.GetUserByID(ViewBag.DealInfo.IdExecutor);
+                ViewBag.NameAuthor = author.UserName;
                 if (User.Identity.IsAuthenticated)
                 {
                     if (author.UserName == User.Identity.Name || executor.UserName == User.Identity.Name)
@@ -74,29 +69,11 @@ namespace Garant.Controllers
                 }
                 else return Redirect("/Account/Login");
             }
-            else return Redirect("/Home/Index");
+            else return Redirect("/Home/Index"); //Начнем пожалуй с роли и частичного представления страницы перед завершением заказа
         }
         public IActionResult Chat()
         {
             return View();
-        }
-        public IActionResult AcceptDealByExecutor() //Подтверждение заказа от исполнителя
-        {
-            QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
-            if (QurencyDealID != 0)
-            {
-                qdeal = _db.GetDealInfo(QurencyDealID);
-                author = _db.GetUserByID(qdeal.IdAuthor);
-                if (qdeal.Status == "В ожидании подтверждения")
-                {
-                    qdeal.AcceptForExucator = true;
-                    _db.TakeAwayMoneyForUser(author.UserName, qdeal.QurencySumma);
-                    qdeal.Status = "В выполнении";
-                    _db.SaveUserChanges(author);
-                    _db.SaveDealChanges(qdeal);
-                }
-            }
-            return Redirect("/Deals/GarantDealProcess");
         }
     }
 }
