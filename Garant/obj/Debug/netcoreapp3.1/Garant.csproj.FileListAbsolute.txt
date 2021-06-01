@@ -2053,6 +2053,7 @@ C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Ga
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\DetailUser.cshtml.g.cs
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\ChangePassword.cshtml.g.cs
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Finance\AddMoney.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\dmitry\Desktop\GarantServices\Garant\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\dmitry\Desktop\GarantServices\Garant\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\dmitry\Desktop\GarantServices\Garant\bin\Debug\netcoreapp3.1\libman.json
@@ -2501,3 +2502,7 @@ C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.pdb
 C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Garant.genruntimeconfig.cache
 C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\dmitry\Desktop\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditArticle.cshtml.g.cs
+=======
+C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Article\ArticlePost.cshtml.g.cs
+C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Article\Index.cshtml.g.cs
+>>>>>>> 4e4b5a75ece58834786733a630b093cee70e52b9

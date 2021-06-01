@@ -47,7 +47,7 @@
                     @if (ViewBag.Author.UserName == User.Identity.Name && ViewBag.QDeal.IdAuthor == ViewBag.Author.Id && ViewBag.QDeal.Status == "В выполнении")
                     {
             <div class="col-md-3"> </div>
-                                <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" type="submit">Завершить заказ</button>}
+                                <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="CompleateDeal">Завершить заказ</button>}
                             else if (ViewBag.Executor.UserName == User.Identity.Name && ViewBag.QDeal.IdExecutor == ViewBag.Executor.Id && ViewBag.QDeal.Status == "В ожидании подтверждения")
                             {
             <div class="col-md-3"> </div>
