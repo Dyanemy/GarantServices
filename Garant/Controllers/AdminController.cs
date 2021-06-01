@@ -45,7 +45,7 @@ namespace Garant.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(int id, string title, int timetoread, string content)
+        public IActionResult Update(int id, string title, int timetoread, string content, string img)
         {
             Article article = db.Articles.FirstOrDefault(article => article.id == id);
 
@@ -57,6 +57,7 @@ namespace Garant.Controllers
             article.Title = title;
             article.TimeToRead = timetoread;
             article.Content = content;
+            article.Img = img;
 
             db.SaveChanges();
 
