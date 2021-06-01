@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dmitry\\Desktop\\GarantServices\\Garant\\Garant.csproj": {}
+    "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dmitry\\Desktop\\GarantServices\\Garant\\Garant.csproj": {
+    "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmitry\\Desktop\\GarantServices\\Garant\\Garant.csproj",
+        "projectUniqueName": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj",
         "projectName": "Garant",
-        "projectPath": "C:\\Users\\dmitry\\Desktop\\GarantServices\\Garant\\Garant.csproj",
-        "packagesPath": "C:\\Users\\dmitry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmitry\\Desktop\\GarantServices\\Garant\\obj\\",
+        "projectPath": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj",
+        "packagesPath": "C:\\Users\\эдем\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\эдем\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

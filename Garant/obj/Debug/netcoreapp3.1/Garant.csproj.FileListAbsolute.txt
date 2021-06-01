@@ -2053,3 +2053,5 @@ C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Ga
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\DetailUser.cshtml.g.cs
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Home\ChangePassword.cshtml.g.cs
 C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Finance\AddMoney.cshtml.g.cs
+C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Article\ArticlePost.cshtml.g.cs
+C:\Users\эдем\Documents\GitHub\GarantServis.ASP.NET-master\GarantServices\Garant\obj\Debug\netcoreapp3.1\Razor\Views\Article\Index.cshtml.g.cs
