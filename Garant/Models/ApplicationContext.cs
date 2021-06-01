@@ -16,7 +16,14 @@ namespace Garant.Models
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+            if(Database.EnsureCreated())
+            {
+                Article article = Article.GetDummyArticle();
+
+                Articles.Add(article);
+                SaveChanges();
+            }
+            
         }
     }
 }
