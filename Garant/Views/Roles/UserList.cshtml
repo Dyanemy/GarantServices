@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Garant.Models.User>
+
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "_Layout";
+}
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>Список пользователей</h1>
+</div>
+
+<table class="table">
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="@user.Id">Права доступа</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

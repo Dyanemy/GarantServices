@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Microsoft.AspNetCore.Identity @*Еще пока не доработанно!*@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Panel heading without title</div>
+            <div class="panel-body">
+                <div class="container" id="chatroom">
+                    <div class="row message-bubble" id="smallchat">
+                        <p class="text-muted">Matt Townsen</p>
+                        <p>Test message</p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="message" type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id="sendBtn" type="button">Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+        let message = document.getElementById("message").value;
+            let elem = document.createElement("div");
+            elem.id = "smallchat";  
+        let firstElem = document.getElementById("chatroom").firstChild;
+            document.getElementById("chatroom").insertBefore(elem, firstElem);
+            document.getElementById("chatroom").insertBefore(elemauthor, firstElem);
+    });
+</script>

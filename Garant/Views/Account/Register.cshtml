@@ -1,0 +1,42 @@
+﻿@model Garant.Models.RegisterViewModel
+@{
+    Layout = "_Layout";
+}
+
+
+
+
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>Регистрация</h1>
+</div>
+
+<div class="card">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <form method="post" asp-controller="Account" asp-action="Register">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input asp-for="Email" name="Email" class="form-control" placeholder="Логин" type="text">
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input asp-for="Password" class="form-control" placeholder="Пароль" type="password">
+            </div>
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input  asp-for="PasswordConfirm" class="form-control" placeholder="Повторить пароль" type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+                <button type="submit" class="btn button btn-block"> Регистрация </button>
+            </div>
+        </form>
+    </article>
+</div>

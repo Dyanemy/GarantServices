@@ -1,0 +1,86 @@
+﻿@model Garant.Models.Email
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container text-center  ">
+    <div class="row">
+        <div class="mx-auto col-md-7 col-sm-12 text-gradient mt-5 mb-1 ">
+            <h1>Контакты</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <p class="lead">
+            Нам приятно отвечать на вопросы про наш сервис и получать интересные предложения. Мы на
+            связи в будние дни с 10:00 до 18:00 (по Минску), а система D1msolinoGarant работает круглосуточно
+            независимо от региона
+        </p>
+    </div>
+</div>
+
+<div id="map-container-google-1" class="z-depth-1-half map-container mb-5" style="height: 500px">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11199.62031865588!2d27.488519118231824!3d53.83521295009454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x474ffd916fbcc7a9!2z0KTQsNC60YPQu9GM0YLQtdGCINGB0L7RhtC40L7QutGD0LvRjNGC0YPRgNC90YvRhSDQutC-0LzQvNGD0L3QuNC60LDRhtC40Lkg0JHQk9Cj!5e0!3m2!1sru!2sby!4v1576012840906!5m2!1sru!2sby"
+            frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form asp-action="contact">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input asp-for="Name" type="text" id="name" name="name" class="form-control">
+                            <label for="name" class="">Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input asp-for="Subject" type="text" id="subject" name="subject" class="form-control">
+                            <label for="subject" class="">Тема</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <textarea asp-for="Body" type="text" id="subject" name="Body" class="form-control" rows="3" cols="15"></textarea>
+                            <label for="message">Сообщение</label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+                <button class=" button btn  btn-lg btn-block" type="submit">Отправить</button>
+            </form>
+        </div>
+  
+          
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <i class="fas fa-map-marker mt-4 fa-2x text-gradient" aria-hidden="true"></i>
+                        <p>Минск, Курчатова 8, Беларусь</p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-phone mt-4 fa-2x text-gradient"></i>
+                        <p>+ 01 234 567 89</p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-envelope mt-4 fa-2x text-gradient"></i>
+                        <p>iprusevich@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>

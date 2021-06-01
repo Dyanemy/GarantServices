@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model Garant.Models.Deal;
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="col-md-12 order-md-1">
+    <h4 class="mb-3 ml-4  ">Сделка<br></h4>
+    <form method="post" asp-controller="Deals" asp-action="CreateDeal">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName">Введите название вашего заказа</label>
+                <input asp-for="NameDeal" type="text" class="form-control" placeholder="Проект" value="" required>
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="AboutDeal">Введите объяснение вашего заказа</label>
+            <textarea asp-for="Explanation" type="text" class="form-control" id="AboutDeal" placeholder="" rows="5" required></textarea>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="LoginOfUser"> Логин исполнителя</label>
+                <input asp-for="LoginForExucator" type="text" class="form-control" placeholder="Введите логин исполнителя вашего заказа" value="" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="PriceOfOrder"> Стоимость заказа</label>
+                <input asp-for="QurencySumma" type="number" class="form-control" placeholder="Стоимость заказа" value="" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="EndOfDealByDays"> Через сколько должна завершиться сделка</label>
+                <input asp-for="DayForFinish" type="number" class="form-control" value="" required>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <button class=" button btn  btn-lg btn-block" type="submit">Создать проект</button>
+    </form>
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

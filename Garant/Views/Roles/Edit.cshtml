@@ -1,0 +1,32 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+
+@model Garant.Models.ChangeRoleViewModel;
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Layout";
+}
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>Права доступа </h1>
+</div>
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="userId" value="@Model.UserId" />
+    <div class="form-group">
+        @foreach (IdentityRole role in Model.AllRoles)
+        {
+            <input type="checkbox" name="roles" value="@role.Name"
+                   @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />@role.Name <br />
+            }
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

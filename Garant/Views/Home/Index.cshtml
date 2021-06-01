@@ -1,0 +1,184 @@
+﻿@{
+    Layout = "_Layout";}
+
+@using Microsoft.AspNetCore.Identity;
+
+
+<div class="container-fluid text-center   ">
+
+
+    <div class="cont ">
+        <div class="row">
+            <div class="mx-auto col-md-7 col-sm-12 text-gradient animated fadeInUp">
+                <h1>
+                    Мы гарантируем вам 100% <br> сделку с минимальной <br> комиссией
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button class="button ">
+                        <a class="buttons buttons-text" asp-action="CreateDeal" asp-controller="Deals">Перейти</a>
+                    </button>
+                }
+                else
+                {
+                    <button class="button ">
+                        <a class="buttons buttons-text" asp-action="Register" asp-controller="Account">Перейти</a>
+                    </button>
+                }
+            </div>
+        </div>
+
+    </div>
+    <div class="container text-center ">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 mt-4 animated   ">
+                <h1>
+                    Что такое безопасная сделка?
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text mt-5 mb-5 animated ">
+                <p>
+                    Безопасная сделка – сервис защиты покупателя и продавца в интернете.
+                    Безопасная сделка гарантирует 100% предоплату, которая хранится на счёте
+                    гаранта ,
+                    пока продавец не выполнит все свои обязательства, а покупатель не
+                    получит товар или услугу.
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1>
+                    Преимущества GarantD1mso
+                </h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4 col-sm-12">
+                <img src="img/quality 1.png" alt="Качество">
+                <p class="text mt-4">Качественно</p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <img src="img/surface1.png" alt="Безопасно">
+                <p class="text mt-4">Безопасно</p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <img src="img/Анонимно.png" alt="Анонимно">
+                <p class="text mt-4"> Анонимно</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1>
+                    Сколько стоит безопасная сделка?
+                </h1>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-6 col-sm-12 ">
+                <p class="text mt-4">Сумма сделки</p>
+                <input type="text" id="txtFirst"> </br>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <p class="text mt-4">Комиссия</p>
+                <input type="text" id="txtResult">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                
+                <button class="button" id="btnOK">
+                    <a class="buttons buttons-text">Рассчитать</a>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+<div class="container text-center mt-5">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h1>
+                Как происходит безопасная сделка через гарант-сервис?
+            </h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class=" blockof mx-auto col-lg-2 col-md-5 col-sm-12">
+            <img src="img/Как происходит сделка1.png" alt="Качество">
+            <p class="text2 mt-4">Продавец и покупатель договорились о безопасной сделке</p>
+        </div>
+        <div class=" blockof mx-auto col-lg-2  col-md-5 col-sm-12">
+            <img src="img/Как происходит сделка 2.png" alt="Безопасно">
+            <p class="text2 mt-4">Покупатель переводит деньги на безопасный счет </p>
+        </div>
+        <div class=" blockof mx-auto col-lg-2 col-md-5 col-sm-12">
+            <img src="img/Как происходит сделка3.png" alt="Анонимно">
+            <p class="text2 mt-4"> Продавец осуществляет передачу товара или услуги покупателю</p>
+        </div>
+        <div class=" blockof mx-auto col-lg-2 col-md-5 col-sm-12">
+            <img src="img/Как происходит сделка 3.png" alt="Анонимно">
+            <p class="text2 mt-4">
+                Покупатель принимает товар, проверяет его соответствие условиям
+                сделки
+            </p>
+        </div>
+        <div class=" blockof mx-auto col-lg-2 col-md-5 col-sm-12">
+            <img src="img/Как происходит сделка 5.png" alt="Анонимно">
+            <p class="text2 mt-4">
+                Сервис переводит деньги продавцу и завершает безопасную сделку
+            </p>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container text-center mt-2">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h1>
+                Наши группы
+            </h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-3 col-md-5 col-sm-6 mt-5">
+            <p class="text mt-4">EnjoyMaloy</p>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-6 ">
+            <a href="https://vk.com/enjoymaloy" target="_blank">
+                <img src="img/EnjoyMaloy.png"
+                     alt="EnjoyMaloy">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-6 second__img">
+            <a href="https://vk.com/d1msolinostat" target="_blank">
+                <img src="img/D1mso.png"
+                     alt="D1msolinostat">
+            </a>
+        </div>
+        <div class="col-lg-3     col-md-5 col-sm-6 mt-5 ">
+            <p class="text mt-4">D1msolinostat</p>
+        </div>
+    </div>
+</div>
+
