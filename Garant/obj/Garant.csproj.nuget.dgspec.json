@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\эдем\\Desktop\\GarantServis.ASP.NET-master\\Garant\\Garant.csproj": {}
+    "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj": {}
   },
   "projects": {
-    "C:\\Users\\эдем\\Desktop\\GarantServis.ASP.NET-master\\Garant\\Garant.csproj": {
+    "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\эдем\\Desktop\\GarantServis.ASP.NET-master\\Garant\\Garant.csproj",
+        "projectUniqueName": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj",
         "projectName": "Garant",
-        "projectPath": "C:\\Users\\эдем\\Desktop\\GarantServis.ASP.NET-master\\Garant\\Garant.csproj",
+        "projectPath": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\Garant.csproj",
         "packagesPath": "C:\\Users\\эдем\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\эдем\\Desktop\\GarantServis.ASP.NET-master\\Garant\\obj\\",
+        "outputPath": "C:\\Users\\эдем\\Documents\\GitHub\\GarantServis.ASP.NET-master\\GarantServices\\Garant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\эдем\\AppData\\Roaming\\NuGet\\NuGet.Config",

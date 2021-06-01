@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{ Layout = "_Layout"; }
+
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>Личный кабинет</h1>
+    <hr>
+</div>
+
+<span class="border border-primary">
+    <div class="col-md-12 order-md-1">
+        <form class="needs-validation" asp-controller="Home" asp-action="DetailUser" novalidate>
+
+            <div class="mb-3">
+                <label for="NameOfDeal">Имя аккаунта: @ViewBag.UserVerefy.UserName</label>
+            </div>
+            <div class="mb-3">
+                <label for="Status">Балланс: @ViewBag.UserVerefy.QurencyBallance</label>
+            </div>
+            @if (ViewBag.IdDealUser != 0)
+            {
+                <div class="mb-3">
+                    <label for="DateOfCreate">Текущий проект: @ViewBag.UserVerefy.QurencyDeals</label>
+                </div>
+            }
+            else
+            {
+                <div class="mb-3">
+                    <label for="DateOfCreate">Текущий проект: Не занят</label>
+                </div>
+            }
+            <div class="row">
+                <div class="mb-3">
+                </div>
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Home" asp-action="ChangePassword" asp-route-id="@ViewBag.UserVerefy.Id">Изменить пароль</a>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</span>
+

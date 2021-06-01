@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Garant.Models;
 using System.Net.Mail;
 using Garant.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace Garant.Controllers
 {
@@ -17,9 +18,12 @@ namespace Garant.Controllers
         private readonly Service service;
         private readonly ISqlBaseRepository _db;
         public int QurencyDealID { get; set; }
+        public User UserVerifyAdmin { get; set; }
+        UserManager<User> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, Service service, ISqlBaseRepository db)
+        public HomeController(ILogger<HomeController> logger, Service service, ISqlBaseRepository db, UserManager<User> userManager)
         {
+            _userManager = userManager;
             _logger = logger;
             this.service = service;
             _db = db;
@@ -28,7 +32,25 @@ namespace Garant.Controllers
         {
             QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
             ViewBag.IdDealUser = QurencyDealID;
+            UserVerifyAdmin = _db.GetUserByLogin(User.Identity.Name);
+            ViewBag.UserVerefy = UserVerifyAdmin;
             return View();
+        }
+        public IActionResult DetailUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                UserVerifyAdmin = _db.GetUserByLogin(User.Identity.Name);
+                QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
+                if (UserVerifyAdmin != null)
+                {
+                    ViewBag.UserVerefy = UserVerifyAdmin;
+                    ViewBag.IdDealUser = QurencyDealID;
+                    return View();
+                }
+                else return Redirect("/Account/Login");
+            }
+            else return Redirect("/Account/Login");
         }
         public IActionResult comments()
         {
@@ -93,6 +115,46 @@ namespace Garant.Controllers
             QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
             ViewBag.IdDealUser = QurencyDealID;
             return View();
+        }
+        public async Task<IActionResult> ChangePassword(string id)
+        {
+            User user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id, Email = user.Email };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await _userManager.FindByIdAsync(model.Id);
+                if (user != null)
+                {
+                    IdentityResult result =
+                        await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Пользователь не найден");
+                }
+            }
+            return View(model);
         }
         [HttpPost]
         public IActionResult contact(Email em)
