@@ -23,7 +23,7 @@ namespace Garant.Controllers
         }
 
 
-
+        [HttpGet]
         public IActionResult Index()
         {
             List<Article> articles = db.Articles.ToList();
