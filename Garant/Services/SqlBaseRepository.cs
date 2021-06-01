@@ -93,7 +93,7 @@ namespace Garant.Services
             IEnumerable<Deal> deals = dbcontext.Deals;
             foreach(var a in deals)
             {
-                if(a.IdAuthor == idauthor)
+                if(a.IdAuthor == idauthor && a.FinishAcceptForAuthor == false && a.FinishAcceptForExecutor == false)
                 {
                     return a.Id;
                 }

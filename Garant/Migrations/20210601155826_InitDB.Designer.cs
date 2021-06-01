@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Garant.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210531131154_AddQurencyDealsforUserTable")]
-    partial class AddQurencyDealsforUserTable
+    [Migration("20210601155826_InitDB")]
+    partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,30 @@ namespace Garant.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Garant.Models.Article", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TimeToRead")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Articles");
+                });
 
             modelBuilder.Entity("Garant.Models.CommentsViewModel", b =>
                 {

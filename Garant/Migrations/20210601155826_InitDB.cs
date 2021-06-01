@@ -3,10 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Garant.Migrations
 {
-    public partial class AddQurencyDealsforUserTable : Migration
+    public partial class InitDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Articles",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Img = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    TimeToRead = table.Column<int>(nullable: false),
+                    Content = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Articles", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -239,6 +255,9 @@ namespace Garant.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Articles");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

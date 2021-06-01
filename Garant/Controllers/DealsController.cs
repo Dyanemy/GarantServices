@@ -115,6 +115,34 @@ namespace Garant.Controllers
                     author.QurencyDeals = 0;
                     qdeal.Status = "Завершена";
                     qdeal.QurencySumma = 0;
+                    qdeal.FinishAcceptForAuthor = true;
+                    qdeal.FinishAcceptForExecutor = true;
+                    _db.SaveDealChanges(qdeal);
+                    _db.SaveUserChanges(author);
+                    _db.SaveUserChanges(executor);
+                }
+            }
+            return Redirect("/Deals/GarantDealProcess");
+        }
+        public IActionResult CancelDeal()
+        {
+            QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
+            if (QurencyDealID != 0)
+            {
+                qdeal = _db.GetDealInfo(QurencyDealID);
+                author = _db.GetUserByID(qdeal.IdAuthor);
+                executor = _db.GetUserByID(qdeal.IdExecutor);
+                if(qdeal.Status != "Завершена" && qdeal.Status != "Отменена")
+                {
+                    if(qdeal.Status == "В выполнении") author.QurencyBallance += qdeal.QurencySumma;
+                    executor.Active = false;
+                    author.Active = false;
+                    executor.QurencyDeals = 0;
+                    author.QurencyDeals = 0;
+                    qdeal.Status = "Отменена";
+                    qdeal.QurencySumma = 0;
+                    qdeal.FinishAcceptForAuthor = true;
+                    qdeal.FinishAcceptForExecutor = true;
                     _db.SaveDealChanges(qdeal);
                     _db.SaveUserChanges(author);
                     _db.SaveUserChanges(executor);
