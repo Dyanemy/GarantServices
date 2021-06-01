@@ -15,5 +15,9 @@ namespace Garant.Services
         int SearchDeals(string idauthor);
         Deal GetDealInfo(int id);
         User GetUserByID(string id);
+        void AddMoneyToUser(string name, int money);
+        void TakeAwayMoneyForUser(string name, int money);
+        User SaveUserChanges(User user);
+        Deal SaveDealChanges(Deal deal);
     }
 }

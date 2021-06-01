@@ -119,5 +119,49 @@ namespace Garant.Services
             }
             return null;
         }
+
+        public void AddMoneyToUser(string name, int money)
+        {
+            foreach(var a in dbcontext.Users)
+            {
+                if(a.UserName == name)
+                {
+                    a.QurencyBallance += money;
+                    var asum = dbcontext.Users.Attach(a);
+                    asum.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                }
+            }
+            dbcontext.SaveChanges();
+        }
+
+        public void TakeAwayMoneyForUser(string name, int money)
+        {
+            foreach (var a in dbcontext.Users)
+            {
+                if (a.UserName == name)
+                {
+                    a.QurencyBallance -= money;
+                    var asum = dbcontext.Users.Attach(a);
+                    asum.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                }
+            }
+            dbcontext.SaveChanges();
+        }
+
+        public User SaveUserChanges(User user)
+        {
+            var edits = dbcontext.Users.Attach(user);
+            edits.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbcontext.SaveChanges();
+            return user;
+        }
+
+        public Deal SaveDealChanges(Deal deal)
+        {
+            var edits = dbcontext.Deals.Attach(deal);
+            edits.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbcontext.SaveChanges();
+            return deal;
+        }
     }
 }
