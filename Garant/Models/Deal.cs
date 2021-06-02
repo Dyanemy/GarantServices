@@ -21,6 +21,7 @@ namespace Garant.Models
         public bool AcceptForExucator { get; set; }
         public bool FinishAcceptForAuthor { get; set; }
         public bool FinishAcceptForExecutor { get; set; }
+        public int DialogID { get; set; }
         public string Status { get; set; }
         [NotMapped]
         public string ReturnUrl { get; set; }

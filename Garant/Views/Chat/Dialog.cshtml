@@ -1,0 +1,15 @@
+﻿@model Garant.Models.DialogViewModel
+
+@foreach(Message message in Model.Messages)
+{
+    <h1>Сообщение от @message.Sender.UserName в @message.Date.ToString()</h1>
+    <p>@message.Text</p>
+}
+
+<form asp-action="SendMessage" asp-controller="Chat">
+
+    <input type="text" name="text" />
+    <input type="hidden" name="dialogid" value="@Model.dialog.id"  />
+    <input type="submit" value="Отправить сообщение" />
+
+</form>
