@@ -1,0 +1,30 @@
+﻿@model List<Garant.Models.Dialog>
+
+
+
+@foreach (Dialog dialog in Model)
+{
+
+    string anotherUser = "";
+
+    if (dialog.Client.UserName == ViewBag.userName)
+    {
+        anotherUser = dialog.Worker.UserName;
+    }
+    else
+    {
+        anotherUser = dialog.Client.UserName;
+    }
+
+    <div>
+
+        <a href="./@dialog.id">
+
+            <h1>Переписка с @anotherUser</h1>
+
+        </a>
+
+    </div>
+
+}
+
