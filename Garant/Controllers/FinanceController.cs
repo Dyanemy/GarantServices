@@ -25,7 +25,7 @@ namespace Garant.Controllers
         [HttpPost]
         public IActionResult AddMoney(int entersumma)
         {
-            if (entersumma < 100000)
+            if (entersumma < 100000 && entersumma > 0)
             {
                 _db.AddMoneyToUser(User.Identity.Name, entersumma);
                 return Redirect("/Home/DetailUser");
