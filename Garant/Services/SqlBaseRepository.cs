@@ -14,13 +14,23 @@ namespace Garant.Services
             dbcontext = context;
         }
 
-        public Deal AddDeal(string namedeal, string explanation, string idexecutor, int summa, int daytocompleate, string idauthor)
+        public Deal AddDeal(string namedeal, string explanation, User executor, int summa, int daytocompleate, User author)
         {
+            Dialog dialog = new Dialog()
+            {
+                Client = author,
+                Worker = executor
+            };
+
+            dbcontext.Dialogs.Add(dialog);
+
+            dbcontext.SaveChanges();
+
             Deal dealforadd = new Deal()
             {
                 NameDeal = namedeal,
                 Explanation = explanation,
-                IdExecutor = idexecutor,
+                IdExecutor = executor.Id,
                 QurencySumma = summa,
                 DataCreated = DateTime.Now,
                 DataFinish = DateTime.Now.AddDays(daytocompleate),
@@ -29,9 +39,10 @@ namespace Garant.Services
                 AcceptForExucator = false,
                 FinishAcceptForAuthor = false,
                 FinishAcceptForExecutor = false,
-                IdAuthor = idauthor
-
+                IdAuthor = author.Id,
+                DialogID = dialog.id
             };
+
             dbcontext.Deals.Add(dealforadd);
             dbcontext.SaveChanges();
             return dealforadd;
