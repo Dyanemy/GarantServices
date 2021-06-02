@@ -41,27 +41,15 @@ namespace Garant.Controllers
                     {
                         if(author.Active == false && executor.Active == false)
                         {
-                            if (dealmodel.DayForFinish > 0)
-                            {
-                                if (dealmodel.QurencySumma >= 10)
-                                {
-                                    var deal = _db.AddDeal(dealmodel.NameDeal, dealmodel.Explanation, executor, dealmodel.QurencySumma, dealmodel.DayForFinish, author);
-                                    _db.ChangeStatusForParticipantsDeal(executor.Id, author.Id, _db.SearchDeals(author.Id));
-                                    return Redirect("/Home/Index");
-                                }
-                            }
+                            var deal = _db.AddDeal(dealmodel.NameDeal, dealmodel.Explanation, executor.Id, dealmodel.QurencySumma, dealmodel.DayForFinish, author.Id);
+                            _db.ChangeStatusForParticipantsDeal(executor.Id, author.Id, _db.SearchDeals(author.Id));
+                            return Redirect("/Home/Index");
                         }
                     }
                 }
             }
-            return Redirect("/Deals/ErrorPageDeals");
+            return Redirect("/Home/help");
         }
-        [HttpGet]
-        public IActionResult ErrorPageDeals()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult GarantDealProcess()
         {
@@ -76,7 +64,6 @@ namespace Garant.Controllers
                 ViewBag.QDeal = qdeal;
                 ViewBag.Author = author;
                 ViewBag.Executor = executor;
-                ViewBag.DialogID = qdeal.DialogID;
                 if (User.Identity.IsAuthenticated)
                 {
                     if (author.UserName == User.Identity.Name || executor.UserName == User.Identity.Name)

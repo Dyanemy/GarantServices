@@ -17,7 +17,5 @@ namespace Garant.Models
         public int QurencyBallance { get; set; }
         public bool Active { get; set; }
         public int QurencyDeals { get; set; }
-        public string PayMent { get; set; }
-        public bool ExitMoney { get; set; }
     }
 }

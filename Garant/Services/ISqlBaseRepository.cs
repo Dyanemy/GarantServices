@@ -8,7 +8,7 @@ namespace Garant.Services
 {
     public interface ISqlBaseRepository
     {
-        Deal AddDeal(string namedeal, string explanation, User executor, int summa, int daytocompleate, User author);
+        Deal AddDeal(string namedeal, string explanation, string idexecutor, int summa, int daytocompleate, string idauthor);
         User GetUserByLogin(string login);
         int GetUserQurencyDeal(string login);
         void ChangeStatusForParticipantsDeal(string idexecutor, string idauthor, int id);

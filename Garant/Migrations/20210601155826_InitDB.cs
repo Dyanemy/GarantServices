@@ -59,9 +59,7 @@ namespace Garant.Migrations
                     Pass = table.Column<int>(nullable: false),
                     QurencyBallance = table.Column<int>(nullable: false),
                     Active = table.Column<bool>(nullable: false),
-                    QurencyDeals = table.Column<int>(nullable: false),
-                    PayMent = table.Column<string>(nullable: true),
-                    ExitMoney = table.Column<bool>(nullable: false)
+                    QurencyDeals = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,7 +100,6 @@ namespace Garant.Migrations
                     AcceptForExucator = table.Column<bool>(nullable: false),
                     FinishAcceptForAuthor = table.Column<bool>(nullable: false),
                     FinishAcceptForExecutor = table.Column<bool>(nullable: false),
-                    DialogID = table.Column<int>(nullable: false),
                     Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -216,54 +213,6 @@ namespace Garant.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Dialogs",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClientId = table.Column<string>(nullable: true),
-                    WorkerId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Dialogs", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Dialogs_AspNetUsers_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Dialogs_AspNetUsers_WorkerId",
-                        column: x => x.WorkerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Messages",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DialogID = table.Column<int>(nullable: false),
-                    Text = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    SenderId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Messages", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Messages_AspNetUsers_SenderId",
-                        column: x => x.SenderId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -302,21 +251,6 @@ namespace Garant.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Dialogs_ClientId",
-                table: "Dialogs",
-                column: "ClientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Dialogs_WorkerId",
-                table: "Dialogs",
-                column: "WorkerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Messages_SenderId",
-                table: "Messages",
-                column: "SenderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -344,12 +278,6 @@ namespace Garant.Migrations
 
             migrationBuilder.DropTable(
                 name: "Deals");
-
-            migrationBuilder.DropTable(
-                name: "Dialogs");
-
-            migrationBuilder.DropTable(
-                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

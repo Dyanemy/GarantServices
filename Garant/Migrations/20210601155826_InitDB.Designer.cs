@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Garant.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210602140237_InitDB")]
+    [Migration("20210601155826_InitDB")]
     partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,9 +91,6 @@ namespace Garant.Migrations
                     b.Property<DateTime>("DataFinish")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DialogID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Explanation")
                         .HasColumnType("nvarchar(max)");
 
@@ -123,54 +120,6 @@ namespace Garant.Migrations
                     b.ToTable("Deals");
                 });
 
-            modelBuilder.Entity("Garant.Models.Dialog", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("WorkerId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("Dialogs");
-                });
-
-            modelBuilder.Entity("Garant.Models.Message", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DialogID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SenderId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("SenderId");
-
-                    b.ToTable("Messages");
-                });
-
             modelBuilder.Entity("Garant.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -193,9 +142,6 @@ namespace Garant.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("ExitMoney")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -214,9 +160,6 @@ namespace Garant.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PayMent")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -383,24 +326,6 @@ namespace Garant.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Garant.Models.Dialog", b =>
-                {
-                    b.HasOne("Garant.Models.User", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
-                    b.HasOne("Garant.Models.User", "Worker")
-                        .WithMany()
-                        .HasForeignKey("WorkerId");
-                });
-
-            modelBuilder.Entity("Garant.Models.Message", b =>
-                {
-                    b.HasOne("Garant.Models.User", "Sender")
-                        .WithMany()
-                        .HasForeignKey("SenderId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -30,13 +30,21 @@ namespace Garant.Controllers
 
 
             // Dialog with this user
-            List<Dialog> Dialogs = db.Dialogs.Where(dialog => dialog.Client.Id == user.Id || dialog.Worker.Id == user.Id).ToList();
+            List<Dialog> userDialogs = db.Dialogs.Where(dialog => dialog.Client.Id == user.Id || dialog.Worker.Id == user.Id).ToList();
 
+            List<DialogViewModel> dialogModel = new List<DialogViewModel>();
+            
+            foreach(Dialog dialog in userDialogs)
+            {
+                List<Message> messages = db.Messages.Where(message => message.DialogID == dialog.id).ToList();
 
-            return View(Dialogs);
+                dialogModel.Add(new DialogViewModel() { dialog = dialog, Messages = messages });
+            }
+
+            return View(dialogModel);
         }
 
-        [HttpGet("{controller}/{id}")]
+        [HttpGet("{id}")]
         public IActionResult Index(int id)
         {
             // Current user
@@ -65,7 +73,7 @@ namespace Garant.Controllers
                 Messages = messages
             };
 
-            return View("Dialog", dialogViewModel);
+            return View(dialogViewModel);
         }
 
 
