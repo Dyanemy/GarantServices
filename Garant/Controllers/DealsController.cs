@@ -64,6 +64,7 @@ namespace Garant.Controllers
                 ViewBag.QDeal = qdeal;
                 ViewBag.Author = author;
                 ViewBag.Executor = executor;
+                ViewBag.DialogID = qdeal.DialogID;
                 if (User.Identity.IsAuthenticated)
                 {
                     if (author.UserName == User.Identity.Name || executor.UserName == User.Identity.Name)

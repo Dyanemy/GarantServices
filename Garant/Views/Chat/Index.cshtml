@@ -7,18 +7,18 @@
 
     string anotherUser = "";
 
-    if (dialog.Client.UserName == ViewBag.userName)
+    if (dialog.AnotherUser != null)
     {
-        anotherUser = dialog.Worker.UserName;
+        anotherUser = dialog.AnotherUser.UserName;
     }
     else
     {
-        anotherUser = dialog.Client.UserName;
+        anotherUser = "Неизвестный пользователь";
     }
 
     <div>
 
-        <a href="./@dialog.id">
+        <a href="~/Chat/@dialog.id">
 
             <h1>Переписка с @anotherUser</h1>
 

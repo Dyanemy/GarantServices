@@ -16,6 +16,17 @@ namespace Garant.Services
 
         public Deal AddDeal(string namedeal, string explanation, string idexecutor, int summa, int daytocompleate, string idauthor)
         {
+            Dialog dialog = new Dialog()
+            {
+                ClientId = idauthor,
+                WorkerId = idexecutor
+            };
+
+            dbcontext.Dialogs.Add(dialog);
+            dbcontext.SaveChanges();
+
+
+
             Deal dealforadd = new Deal()
             {
                 NameDeal = namedeal,
@@ -29,8 +40,8 @@ namespace Garant.Services
                 AcceptForExucator = false,
                 FinishAcceptForAuthor = false,
                 FinishAcceptForExecutor = false,
-                IdAuthor = idauthor
-
+                IdAuthor = idauthor,
+                DialogID = dialog.id
             };
             dbcontext.Deals.Add(dealforadd);
             dbcontext.SaveChanges();
