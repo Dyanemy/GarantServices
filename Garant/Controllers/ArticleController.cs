@@ -20,7 +20,6 @@ namespace Garant.Controllers
             this.db = db;
         }
 
-        [Route("{controller}")]
         public IActionResult Index()
         {
             List<Article> articles = db.Articles.ToList();
