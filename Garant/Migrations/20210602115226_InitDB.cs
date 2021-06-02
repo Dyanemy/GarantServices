@@ -59,7 +59,9 @@ namespace Garant.Migrations
                     Pass = table.Column<int>(nullable: false),
                     QurencyBallance = table.Column<int>(nullable: false),
                     Active = table.Column<bool>(nullable: false),
-                    QurencyDeals = table.Column<int>(nullable: false)
+                    QurencyDeals = table.Column<int>(nullable: false),
+                    PayMent = table.Column<string>(nullable: true),
+                    ExitMoney = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

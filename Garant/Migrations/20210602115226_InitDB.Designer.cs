@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Garant.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210601155826_InitDB")]
+    [Migration("20210602115226_InitDB")]
     partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,6 +142,9 @@ namespace Garant.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("ExitMoney")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -160,6 +163,9 @@ namespace Garant.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PayMent")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")

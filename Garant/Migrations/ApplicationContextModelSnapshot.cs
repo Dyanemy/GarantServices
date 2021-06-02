@@ -140,6 +140,9 @@ namespace Garant.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("ExitMoney")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -158,6 +161,9 @@ namespace Garant.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PayMent")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
