@@ -72,7 +72,7 @@ namespace Garant.Controllers
 
             if (dialog.ClientId != user.Id && dialog.WorkerId != user.Id)
             {
-                return Json("You don't have premission");
+                return NotFound();
             }
 
 
@@ -141,7 +141,7 @@ namespace Garant.Controllers
 
             if(dialog.ClientId != user.Id && dialog.WorkerId != user.Id)
             {
-                return Json("You don't have premission");
+                return NotFound();
             }
 
             Message message = new Message()
