@@ -29,7 +29,6 @@ namespace Garant.Controllers
 
 
         [HttpGet]
-        [Route("{controller}")]
         public IActionResult Index()
         {
             List<Article> articles = db.Articles.ToList();
@@ -53,25 +52,6 @@ namespace Garant.Controllers
             }
 
             return View(article);
-        }
-
-
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            Article article = db.Articles.FirstOrDefault(article => article.id == id);
-
-            if(article != null)
-            {
-                db.Articles.Remove(article);
-                db.SaveChanges();
-            }
-            else
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Index", "Admin", id);
         }
 
         [HttpPost]
@@ -112,7 +92,7 @@ namespace Garant.Controllers
 
             db.SaveChanges();
 
-            return RedirectToAction("Index", "Admin", id);
+            return RedirectToAction("Index", "Article", id);
 
         }
 
@@ -152,7 +132,7 @@ namespace Garant.Controllers
 
             db.SaveChanges();
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index", "Article");
 
         }
 

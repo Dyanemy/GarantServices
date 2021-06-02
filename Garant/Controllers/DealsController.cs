@@ -45,7 +45,7 @@ namespace Garant.Controllers
                             {
                                 if (dealmodel.QurencySumma >= 10)
                                 {
-                                    var deal = _db.AddDeal(dealmodel.NameDeal, dealmodel.Explanation, executor, dealmodel.QurencySumma, dealmodel.DayForFinish, author);
+                                    var deal = _db.AddDeal(dealmodel.NameDeal, dealmodel.Explanation, executor.Id, dealmodel.QurencySumma, dealmodel.DayForFinish, author.Id);
                                     _db.ChangeStatusForParticipantsDeal(executor.Id, author.Id, _db.SearchDeals(author.Id));
                                     return Redirect("/Home/Index");
                                 }
@@ -76,7 +76,6 @@ namespace Garant.Controllers
                 ViewBag.QDeal = qdeal;
                 ViewBag.Author = author;
                 ViewBag.Executor = executor;
-                ViewBag.DialogID = qdeal.DialogID;
                 if (User.Identity.IsAuthenticated)
                 {
                     if (author.UserName == User.Identity.Name || executor.UserName == User.Identity.Name)

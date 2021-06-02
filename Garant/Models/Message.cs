@@ -7,10 +7,10 @@ namespace Garant.Models
 {
     public class Message
     {
-        public int id { get; set; }
-        public int DialogID { get; set; }
-        public string Text { get; set; }
-        public DateTime Date { get; set; }
-        public User Sender { get; set; }
+        public int Id { get; set; }
+        public string Content { get; set; }
+        public DateTime Timestamp { get; set; }
+        public User FromUser { get; set; }
+        public int ToRoomId { get; set; }
     }
 }
