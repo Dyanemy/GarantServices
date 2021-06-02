@@ -12,6 +12,8 @@ namespace Garant.Models
         public DbSet<CommentsViewModel> CommentsViewModel { get; set; }
         public DbSet<Deal> Deals { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Dialog> Dialogs { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
