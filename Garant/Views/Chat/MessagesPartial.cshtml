@@ -1,0 +1,9 @@
+﻿@model List<Garant.Models.Message> 
+
+@foreach (Message message in Model)
+{
+    <div class="row message-bubble" id="smallchat">
+        <p class="text-muted">@message.Sender.UserName: </p>
+        <p>@message.Text</p>
+    </div>
+}

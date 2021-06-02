@@ -93,6 +93,21 @@ namespace Garant.Controllers
         }
 
 
+        public IActionResult GetNewMessages(int dialogID, int currentCountMessages)
+        {
+
+            List<Message> messages = db.Messages.Where(message => message.DialogID == dialogID).Skip(currentCountMessages).ToList();
+
+            foreach(Message message in messages)
+            {
+                message.Sender = db.Users.FirstOrDefault(user => user.Id == message.SenderID);
+            }
+
+            return PartialView("MessagesPartial", messages);
+        }
+
+
+        [HttpPost]
         public IActionResult SendMessage(string text, int dialogID)
         {
             // Current user

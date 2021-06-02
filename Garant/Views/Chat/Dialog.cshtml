@@ -1,15 +1,79 @@
 ﻿@model Garant.Models.DialogViewModel
 
-@foreach(Message message in Model.Messages)
-{
-    <h1>Сообщение от @message.Sender.UserName в @message.Date.ToString()</h1>
-    <p>@message.Text</p>
-}
 
-<form asp-action="SendMessage" asp-controller="Chat">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <input type="text" name="text" />
-    <input type="hidden" name="dialogid" value="@Model.dialog.id"  />
-    <input type="submit" value="Отправить сообщение" />
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Panel heading without title</div>
+            <div class="panel-body">
+                <div class="container" id="chatroom">
 
-</form>
+                    @foreach (Message message in Model.Messages)
+                    {
+                        <div class="row message-bubble" id="smallchat">
+                            <p class="text-muted">@message.Sender.UserName: </p>
+                            <p>@message.Text</p>
+                        </div>
+                    }
+
+                </div>
+                <form asp-action="SendMessage" asp-controller="Chat">
+                    <input type="hidden" name="dialogid" id="dialogID" value="@Model.dialog.id" />
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="message" type="text" name="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="sendBtn" onclick="SendMessage()" type="button">Send</button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var dialogID = document.getElementById("dialogID").value;
+    var request;
+
+    function SendMessage() {
+
+        
+        var textInput = document.getElementById("message").value;
+        document.getElementById("message").value = "";
+
+        request = $.ajax({
+            url: "SendMessage",
+            type: "POST",
+            data: { text: textInput, dialogID: dialogID },
+            dataType: "html"
+        });
+
+        request.done(function () {
+            LoadNewMessages();
+        });
+
+    }
+
+    const interval = setInterval(function () {
+        LoadNewMessages();
+    }, 3000);
+
+    function LoadNewMessages() {
+
+        var messageCount = document.getElementsByClassName("message-bubble").length;
+
+        $('#chatroom').load('@Url.Action("GetNewMessages")?dialogid=' + dialogID + '&currentCountMessages=0');
+
+    }
+
+</script>
+
+
