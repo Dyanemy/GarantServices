@@ -54,8 +54,14 @@ namespace Garant.Controllers
                     }
                 }
             }
-            return Redirect("/Home/help");
+            return Redirect("/Deals/ErrorPageDeals");
         }
+        [HttpGet]
+        public IActionResult ErrorPageDeals()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult GarantDealProcess()
         {
