@@ -13,15 +13,27 @@ namespace Garant.Controllers
     public class UsersController : Controller
     {
         UserManager<User> _userManager;
+        private readonly ApplicationContext context;
 
-        public UsersController(UserManager<User> userManager)
+        public UsersController(UserManager<User> userManager, ApplicationContext context)
         {
             _userManager = userManager;
+            this.context = context;
         }
+
 
         public IActionResult Index() => View(_userManager.Users.ToList());
 
         public IActionResult Create() => View();
+        [Authorize(Roles = "admin")]
+        public IActionResult AllDeals()
+        {
+            List<Deal> deals = context.Deals.ToList();
+            ViewBag.Authors = context.Users.ToList();
+            ViewBag.Executor = context.Users.ToList();
+            return View(deals);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)

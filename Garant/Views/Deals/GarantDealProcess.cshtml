@@ -1,6 +1,30 @@
 ﻿
 @{ Layout = "_Layout"; }
 
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+
+
+<style>
+    .display-grid{
+        display: grid;
+    }
+    .text-bold {
+        font-family: 'Montserrat', sans-serif;
+        color: #808080;
+    }
+    h4{
+        display: inline;
+        font-weight: normal;
+        
+    }
+        h4, h4 {
+            font-size: 17px;
+        }
+</style>
+
 <div class="container text-center text-gradient mt-5 mb-1">
     <h1>Активная сделка</h1>
     <hr>
@@ -8,46 +32,36 @@
 
 <span class="border border-primary">
     <div class="col-md-12 order-md-1">
-        <form class="needs-validation" asp-controller="Deals" asp-action="GarantDealProcess" novalidate>
+        <form class="needs-validation display-grid" asp-controller="Deals" asp-action="GarantDealProcess" novalidate>
 
             <div class="mb-3">
-                <label for="NameOfDeal">Название сделки: @ViewBag.DealInfo.NameDeal</label>
+                <label class="text-bold" for="NameOfDeal">Название сделки: &nbsp;&nbsp;<h4>@ViewBag.DealInfo.NameDeal</h4></label>
             </div>
             <div class=" mb-3">
-                <label for="NumberOfDeal">Номер заказа: @ViewBag.DealInfo.Id</label>
+                <label class="text-bold" for="NumberOfDeal">Номер заказа: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h4>@ViewBag.DealInfo.Id</h4></label>
             </div>
             <div class="mb-3">
-                <label for="Status">Статус: @ViewBag.DealInfo.Status</label>
+                <label class="text-bold" for="Status">Статус: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4>@ViewBag.DealInfo.Status</h4></label>
             </div>
             <div class="mb-3">
-                <label for="DateOfCreate">Дата создания: @ViewBag.DealInfo.DataCreated.ToString("d")</label>
+                <label class="text-bold" for="DateOfCreate">Дата создания: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4>@ViewBag.DealInfo.DataCreated.ToString("d")</h4></label>
             </div>
             <div class="mb-3">
-                <label for="DateOfEnd">Дата завершения: @ViewBag.DealInfo.DataFinish.ToString("d")</label>
+                <label class="text-bold" for="DateOfEnd">Дата завершения: &nbsp; <h4>@ViewBag.DealInfo.DataFinish.ToString("d")</h4></label>
             </div>
             <div class="mb-3">
-                <label for="NameOfCreator">Имя заказчика: @ViewBag.Author.UserName</label>
+                <label class="text-bold" for="NameOfCreator">Имя заказчика: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4>@ViewBag.Author.UserName</h4></label>
             </div>
             <div class="mb-3">
-                <label for="Summ">Сумма: @ViewBag.DealInfo.QurencySumma</label>
+                <label class="text-bold" for="Summ">Сумма: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4>@ViewBag.DealInfo.QurencySumma</h4></label>
             </div>
-
-            <div class="mb-3">
-                <label for="About">Пояснение задачи</label>
-            </div>
-            <div class="row">
-                <div class="mb-3">
-                    @ViewBag.DealInfo.Explanation
-                </div>
-                <br />
-            </div>
-            <div class="row">
+            <div class="row col-md-12">
                 @if (ViewBag.QDeal.Status != "Завершена" && ViewBag.QDeal.Status != "Отменена")
                 {
                     @if (ViewBag.Author.UserName == User.Identity.Name && ViewBag.QDeal.IdAuthor == ViewBag.Author.Id && ViewBag.QDeal.Status == "В выполнении")
                     {
             <div class="col-md-3"> </div>
-                                <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="CompleateDeal">Завершить заказ</button>}
+                                <button class=" mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="CompleateDeal">Завершить заказ</button>}
                             else if (ViewBag.Executor.UserName == User.Identity.Name && ViewBag.QDeal.IdExecutor == ViewBag.Executor.Id && ViewBag.QDeal.Status == "В ожидании подтверждения")
                             {
             <div class="col-md-3"> </div>
@@ -55,10 +69,10 @@
                                     @if (ViewBag.QDeal.IdAuthor == ViewBag.Author.Id && ViewBag.Author.UserName == User.Identity.Name)
                                     {
                     <div class="col-md-1"> </div>
-                                        <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="CancelDeal">Отменить заказ</button>                }
+                                        <button class=" mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="CancelDeal">Отменить заказ</button>                }
 
                                                     <div class="col-md-1"> </div>
-                                                                    <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="Chat">Перейти в ЛС</button>
+                                                                    <button class=" mb-3 button btn  btn-lg btn-block text-center" asp-controller="Deals" asp-action="Chat">Перейти в ЛС</button>
                                                                 }
 
             </div>
