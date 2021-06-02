@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Garant.Models.Deal>
+
+
+<table width="1000px">
+    <thead>
+        <tr>
+            <th>Номер сделки</th>
+            <th>Автор</th>
+            <th>Исполнитель</th>
+            <th>Дата создания</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Id</td>
+                <td>
+                    @foreach(var aa in ViewBag.Authors)
+                {
+                    if (aa.Id == a.IdAuthor)
+                    {
+                            @aa.UserName
+                    }
+                }
+                </td>
+                <td>
+                    @foreach (var aa in ViewBag.Authors)
+                    {
+                        if (aa.Id == a.IdExecutor)
+                        {
+                            @aa.UserName
+                        }
+                    }
+                </td>
+                <td>@a.DataCreated</td>
+                <td>@a.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
