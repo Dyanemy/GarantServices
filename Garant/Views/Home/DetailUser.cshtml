@@ -21,6 +21,9 @@
             <div class="mb-3">
                 <label for="Status">Балланс: @ViewBag.UserVerefy.QurencyBallance</label>
             </div>
+            <div class="mb-3">
+                <label for="NameOfCreator">Электронные деньги: @ViewBag.UserPayment</label>
+            </div>
             @if (ViewBag.IdDealUser != 0)
             {
                 <div class="mb-3">
@@ -42,7 +45,7 @@
                 <div class="col-md-3"> </div>
                 <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Finance" asp-action="AddMoney">Добавить средства</a>
                 <div class="col-md-1"> </div>
-                <button class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" type="submit">Вывод средств</button>
+                <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Finance" asp-action="TakeAwayMoney">Вывод средств</a>
                 <div class="col-md-1"> </div>
                 <a class="col-md-2 mb-3 button btn  btn-lg btn-block text-center" asp-controller="Home" asp-action="ChangePassword" asp-route-id="@ViewBag.UserVerefy.Id">Изменить пароль</a>
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Garant.Models;
+using Garant.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace Garant.Controllers
     {
         UserManager<User> _userManager;
         private readonly ApplicationContext context;
+        private readonly ISqlBaseRepository repos;
 
-        public UsersController(UserManager<User> userManager, ApplicationContext context)
+        public UsersController(UserManager<User> userManager, ApplicationContext context, ISqlBaseRepository repos)
         {
             _userManager = userManager;
             this.context = context;
+            this.repos = repos;
         }
 
 
@@ -147,7 +150,26 @@ namespace Garant.Controllers
             }
             return View(model);
         }
-
+        public IActionResult RequestMoney()
+        {
+            List<Finance> finances = context.Finances.ToList();
+            return View(finances);
+        }
+        [HttpGet]
+        public IActionResult RequestMoney(int id)
+        {
+            List<Finance> finances = repos.GetFinances().ToList();
+            foreach (var a in finances)
+            {
+                if (a.Id == id)
+                {
+                    a.Status = "Успешно";
+                    repos.SaveFinanceChanges(a);
+                    return View(finances);
+                }
+            }
+            return View(finances);
+        }
     }
 
 

@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@using Microsoft.AspNetCore.Identity
+@model Garant.Models.Deal;
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="col-md-12 order-md-1">
+    <h4 class="mb-3 ml-4  ">Вывод средств<br></h4>
+    <form method="post" asp-controller="Finance" asp-action="TakeAwayMoney">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName">Введите сумму вывода</label>
+                <input name="discardsumma" type="number" class="form-control" placeholder="Сумма вывода" value="" required>
+                <label for="firstName">Введите номер телефона</label>
+                <input name="numberphone" type="number" class="form-control" placeholder="Номер телефона" value="" required>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <button class=" button btn  btn-lg btn-block" type="submit">Вывести средства</button>
+    </form>
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

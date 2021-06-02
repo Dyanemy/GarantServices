@@ -174,5 +174,24 @@ namespace Garant.Services
             dbcontext.SaveChanges();
             return deal;
         }
+
+        public Finance SaveFinanceChanges(Finance finance)
+        {
+            var edits = dbcontext.Finances.Attach(finance);
+            edits.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbcontext.SaveChanges();
+            return finance;
+        }
+
+        public void AddRequestFinance(Finance addfinance)
+        {
+            dbcontext.Finances.Add(addfinance);
+            dbcontext.SaveChanges();
+        }
+
+        public IEnumerable<Finance> GetFinances()
+        {
+            return dbcontext.Finances;
+        }
     }
 }

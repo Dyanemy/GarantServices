@@ -19,5 +19,8 @@ namespace Garant.Services
         void TakeAwayMoneyForUser(string name, int money);
         User SaveUserChanges(User user);
         Deal SaveDealChanges(Deal deal);
+        Finance SaveFinanceChanges(Finance finance);
+        void AddRequestFinance(Finance addfinance);
+        IEnumerable<Finance> GetFinances();
     }
 }

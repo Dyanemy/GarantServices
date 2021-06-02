@@ -14,6 +14,7 @@ namespace Garant.Models
         public DbSet<Article> Articles { get; set; }
         public DbSet<Dialog> Dialogs { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Finance> Finances { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
