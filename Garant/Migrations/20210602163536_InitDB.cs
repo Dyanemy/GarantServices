@@ -102,11 +102,60 @@ namespace Garant.Migrations
                     AcceptForExucator = table.Column<bool>(nullable: false),
                     FinishAcceptForAuthor = table.Column<bool>(nullable: false),
                     FinishAcceptForExecutor = table.Column<bool>(nullable: false),
+                    DialogID = table.Column<int>(nullable: false),
                     Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Deals", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Dialogs",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClientId = table.Column<string>(nullable: true),
+                    WorkerId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dialogs", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Finances",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NumberPhone = table.Column<int>(nullable: false),
+                    Summa = table.Column<int>(nullable: false),
+                    DataCreated = table.Column<DateTime>(nullable: false),
+                    Status = table.Column<string>(nullable: true),
+                    AuthorId = table.Column<string>(nullable: true),
+                    AuthorName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Finances", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DialogID = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    SenderID = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -280,6 +329,15 @@ namespace Garant.Migrations
 
             migrationBuilder.DropTable(
                 name: "Deals");
+
+            migrationBuilder.DropTable(
+                name: "Dialogs");
+
+            migrationBuilder.DropTable(
+                name: "Finances");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

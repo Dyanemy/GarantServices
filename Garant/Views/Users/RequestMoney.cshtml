@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/AllRequestMoney.css" />
+</head>
+
+<div class="container">
+    <div class="row marginoftop">
+        @foreach (var a in Model)
+        {
+        <div class="framers">
+            <div class="bodystyle">
+                <h1 class="text-login">@a.AuthorName (#@a.Id)</h1>
+                <div class="line-line"></div>
+                <p class="text-info">Сумма вывода: @a.Summa</p>
+                <p class="text-info">Дата заявки: @a.DataCreated.ToString("d")</p>
+                <p class="text-info">Сумма вывода: @a.Status</p>
+                @if (a.Status != "Успешно")
+                {
+                    <a class="button-allrequest btn-allrequest" asp-controller="Users" asp-action="RequestMoney" asp-route-id="@a.Id">Подтвердить</a>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</div>

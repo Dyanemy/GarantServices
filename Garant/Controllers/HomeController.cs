@@ -46,6 +46,7 @@ namespace Garant.Controllers
                 {
                     ViewBag.UserVerefy = UserVerifyAdmin;
                     ViewBag.IdDealUser = QurencyDealID;
+                    ViewBag.UserPayment = UserVerifyAdmin.PayMent;
                     return View();
                 }
                 else return Redirect("/Account/Login");
