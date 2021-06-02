@@ -81,6 +81,15 @@ namespace Garant.Controllers
             foreach(Message message in messages)
             {
                 message.Sender = db.Users.FirstOrDefault(user => user.Id == message.SenderID);
+
+                if(user.Id == message.Sender.Id)
+                {
+                    message.IsFromAnother = false;
+                }
+                else
+                {
+                    message.IsFromAnother = true;
+                }
             }
 
             DialogViewModel dialogViewModel = new DialogViewModel()
@@ -95,12 +104,22 @@ namespace Garant.Controllers
 
         public IActionResult GetNewMessages(int dialogID, int currentCountMessages)
         {
+            User user = db.Users.FirstOrDefault(user => user.UserName == User.Identity.Name);
 
             List<Message> messages = db.Messages.Where(message => message.DialogID == dialogID).Skip(currentCountMessages).ToList();
 
             foreach(Message message in messages)
             {
                 message.Sender = db.Users.FirstOrDefault(user => user.Id == message.SenderID);
+
+                if (user.Id == message.Sender.Id)
+                {
+                    message.IsFromAnother = false;
+                }
+                else
+                {
+                    message.IsFromAnother = true;
+                }
             }
 
             return PartialView("MessagesPartial", messages);

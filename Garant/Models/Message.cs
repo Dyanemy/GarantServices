@@ -16,5 +16,7 @@ namespace Garant.Models
 
         [NotMapped]
         public User Sender { get; set; }
+        [NotMapped]
+        public bool IsFromAnother { get; set; }
     }
 }
