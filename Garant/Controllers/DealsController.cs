@@ -43,12 +43,12 @@ namespace Garant.Controllers
                         {
                             var deal = _db.AddDeal(dealmodel.NameDeal, dealmodel.Explanation, executor.Id, dealmodel.QurencySumma, dealmodel.DayForFinish, author.Id);
                             _db.ChangeStatusForParticipantsDeal(executor.Id, author.Id, _db.SearchDeals(author.Id));
-                            return Redirect("/Home/Index");
+                            return Redirect("/Deals/GarantDealProcess");
                         }
                     }
                 }
             }
-            return Redirect("/Home/help");
+            return Redirect("/Deals/ErrorPageDeals");
         }
         [HttpGet]
         public IActionResult GarantDealProcess()
@@ -150,6 +150,10 @@ namespace Garant.Controllers
                 }
             }
             return Redirect("/Deals/GarantDealProcess");
+        }
+        public IActionResult ErrorPageDeals()
+        {
+            return View();
         }
     }
 }
