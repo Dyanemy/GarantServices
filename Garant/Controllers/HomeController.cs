@@ -20,7 +20,7 @@ namespace Garant.Controllers
         public int QurencyDealID { get; set; }
         public User UserVerifyAdmin { get; set; }
         UserManager<User> _userManager;
-
+        public IEnumerable<CommentsViewModel> Comments { get; set; }
         public HomeController(ILogger<HomeController> logger, Service service, ISqlBaseRepository db, UserManager<User> userManager)
         {
             _userManager = userManager;
@@ -28,6 +28,7 @@ namespace Garant.Controllers
             this.service = service;
             _db = db;
         }
+
         public IActionResult Index()
         {
             QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
@@ -53,11 +54,22 @@ namespace Garant.Controllers
             }
             else return Redirect("/Account/Login");
         }
+        [HttpGet]
         public IActionResult comments()
         {
-            QurencyDealID = _db.GetUserQurencyDeal(User.Identity.Name);
-            ViewBag.IdDealUser = QurencyDealID;
             return View();
+        }
+        public IActionResult CommentIndex()
+        {
+            Comments = _db.GetComments();
+            ViewBag.ListComment = Comments;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateComment(CommentsViewModel comment)
+        {
+            _db.AddComment(comment.Name, comment.Surname, comment.Login, comment.Email, comment.Message);
+            return Redirect("CommentIndex");
         }
         public IActionResult ErrorFindOfPage()
         {

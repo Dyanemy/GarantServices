@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Garant.Models.CommentsViewModel>
+@{
+    ViewBag.Title = "Все комментарии";
+}
+
+
+<div class="container text-center text-gradient mt-5 mb-1">
+    <h1>Все отзывы</h1>
+    <hr>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in ViewBag.ListComment)
+            {
+                <div class="col-sm-5 col-md-12 col-12 pb-4">
+                    <div class="comment mt-4 text-justify float-left">
+                        <img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="rounded-circle" width="40" height="40">
+                        <h4>@item.Name </h4> <h4>@item.Surname</h4> <span>- @item.DataCreated.ToString("d")</span> <br>
+                        <p>@item.Message</p>
+                    </div>
+                </div>
+
+            }
+            <a asp-action="comments" asp-controller="Home" class="col-md-3  button btn  btn-lg btn-block" type="submit">Добавить комментарий</a>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    #profile {
+        background-color: unset
+    }
+
+    #post {
+        margin: 10px;
+        padding: 6px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        text-align: center;
+        background-color: #ecb21f;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 13px;
+        width: 50%
+    }
+
+
+    #profile {
+        text-decoration: none;
+        color: rgb(224, 219, 219);
+        background-color: black
+    }
+
+    .comments {
+        margin-top: 5%;
+        margin-left: 20px
+    }
+
+
+    .comment {
+        border: 1px solid #6c757d;
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px
+    }
+
+        .comment h4,
+        .comment span,
+        .darker h4,
+        .darker span {
+            display: inline
+        }
+
+        .comment p,
+        .comment span,
+        .darker p,
+        .darker span {
+            color: rgb(184, 183, 183)
+        }
+
+    h1,
+    h4 {
+        font-weight: bold
+    }
+
+    label {
+        color: rgb(212, 208, 208)
+    }
+
+    #align-form {
+        margin-top: 20px
+    }
+
+ 
+
+    #checkbx {
+        background-color: black
+    }
+
+    #darker img {
+        margin-right: 15px;
+        position: static
+    }
+
+
+</style>

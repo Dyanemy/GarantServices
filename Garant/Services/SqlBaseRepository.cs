@@ -47,7 +47,27 @@ namespace Garant.Services
             dbcontext.SaveChanges();
             return dealforadd;
         }
+        public CommentsViewModel AddComment(string name, string surname, string login, string email, string message)
+        {
+            CommentsViewModel comments = new CommentsViewModel()
+            {
+                Name = name,
+                Surname = surname,
+                Login = login,
+                Email = email,
+                Message = message,
+                DataCreated = DateTime.Now
+            };
 
+            dbcontext.CommentsViewModel.Add(comments);
+            dbcontext.SaveChanges();
+            return comments;
+        }
+
+        public IEnumerable<CommentsViewModel> GetComments()
+        {
+            return dbcontext.CommentsViewModel;
+        }
         public User GetUserByLogin(string login)
         {
             if (!string.IsNullOrEmpty(login))

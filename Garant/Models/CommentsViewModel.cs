@@ -14,6 +14,7 @@ namespace Garant.Models
         public string Login { get; set; }   
         public string Email { get; set; }
         public string  Message { get; set; }
+        public DateTime DataCreated { get; set; }
 
     }
 }

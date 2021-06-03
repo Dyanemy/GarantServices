@@ -22,5 +22,7 @@ namespace Garant.Services
         Finance SaveFinanceChanges(Finance finance);
         void AddRequestFinance(Finance addfinance);
         IEnumerable<Finance> GetFinances();
+        public CommentsViewModel AddComment(string name, string surname, string login, string email, string message);
+        public IEnumerable<CommentsViewModel> GetComments();
     }
 }
